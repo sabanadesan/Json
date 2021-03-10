@@ -12,15 +12,8 @@ namespace App
             
             JsonObject obj = JsonParser.Parse(data);
             Dictionary<string, JsonObject> value = (Dictionary<string, JsonObject>) obj.Value;
-            JsonObject[] materials = obj.Value["materials"].Value;
 
-            int index = 0;
-            Dictionary<string, JsonObject> mat = materials[index].Value;
-            string name = mat["name"].Value;
-            dynamic txt = mat["diffuseTexture"].Value["name"].Value;
-
-            JsonObject[] ms = obj.Value["meshes"].Value;
-            var verticesArray = ms[index].Value["vertices"].Value;
+            JsonObject[] materials = (JsonObject[]) value["materials"].Value;
 
         }
     }

@@ -33,7 +33,7 @@ namespace Iridium.Json
 {
     public class JsonObject
     {
-        private dynamic _value;
+        private object _value;
         private JsonObjectType _type;
 
         public JsonObject()
@@ -76,7 +76,7 @@ namespace Iridium.Json
         public bool IsValue => _type == JsonObjectType.Value;
         public bool IsNull => _value == null && _type != JsonObjectType.Undefined;
         public bool IsNullOrUndefined => _value == null;
-        public dynamic Value => IsValue || IsArray || IsObject ? _value : null;
+        public object Value => IsValue || IsArray || IsObject ? _value : null;
 
         public static JsonObject Undefined() => new JsonObject(JsonObjectType.Undefined);
         public static JsonObject EmptyObject() => new JsonObject(JsonObjectType.Object);
